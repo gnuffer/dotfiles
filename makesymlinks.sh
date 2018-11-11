@@ -2,6 +2,7 @@
 
 ################
 # This script creates symlinks from ~ to the dotfiles in ~/dotfiles.
+# Adapted with minor changes from http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
 ################
 
 #### Variables
