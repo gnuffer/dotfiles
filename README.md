@@ -8,3 +8,4 @@ chmod +x makesymlinks.sh
 ## Resources on dotfile management
 * [Michael Smalley, Using Git and GitHub to manage your dotfiles](http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/)
 * [Dotfiles -- Your unofficial guide to dotfiles on GitHub](https://dotfiles.github.io/)
+* [Ask HN: What do you do to manage dotfiles?](https://news.ycombinator.com/item?id=11070797)
