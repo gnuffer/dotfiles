@@ -24,7 +24,7 @@ if [ -f ~/.git-completion.bash ]; then
 fi
  
 # alias to the most recent version of vim
-alias vim='/usr/local/Cellar/vim/7.4.936'
+alias vim='/usr/local/Cellar/vim/8.1.0500/bin/vim'
 export PATH="/usr/local/bin:$PATH"
 
 # Exercism bash completion
