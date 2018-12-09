@@ -7,6 +7,9 @@ colorscheme zenburn
 
 syntax enable
 
+" enable matchit.vim and use '%' to jump between matching keywords
+runtime macros/matchit.vim
+
 set number
 set display=lastline
 " mapping to make movements operate on 1 screen line in wrap mode

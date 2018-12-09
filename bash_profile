@@ -27,6 +27,8 @@ fi
 alias vim='/usr/local/Cellar/vim/8.1.0500/bin/vim'
 export PATH="/usr/local/bin:$PATH"
 
+# set default terminal editor to vim
+
 # Exercism bash completion
 if [ -f ~/.config/exercism/exercism_completion.bash ]; then
   . ~/.config/exercism/exercism_completion.bash
