@@ -14,6 +14,15 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
+;; to use melpa
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+
+;; magit
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
 (global-set-key "\C-cl" 'org-store-link)
      (global-set-key "\C-cc" 'org-capture)
      (global-set-key "\C-ca" 'org-agenda)
@@ -72,19 +81,29 @@
 (add-to-list 'load-path "~/.emacs.d/evil")  
 (require 'evil)  
 (evil-mode 1)
-(custom-set-variables
+
+;; Reveal.js + Org mode
+(add-to-list 'load-path "~/.emacs.d/org-reveal")  
+(require 'ox-reveal)
+(setq Org-Reveal-root "file:///~/slides/reveal.js")
+(setq Org-Reveal-title-slide nil)
+
+;;(custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (org-edna))))
+;; '(package-selected-packages (quote (ox-reveal orgalist ## org-edna))))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
  ;; uses XeLaTeX instead of LaTeX)
 (setq org-latex-pdf-process
  '("xelatex -interaction nonstopmode %f"
   "xelatex -interaction nonstopmode %f"))
+
