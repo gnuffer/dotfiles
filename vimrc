@@ -80,3 +80,28 @@ map <C-l> <C-w>l
 "enable fzf in vim by adding directory to &runtimepath
 set rtp+=/usr/local/opt/fzf
 
+"add minpac
+packadd minpac
+call minpac#init()
+
+"add plugins using minpac
+call minpac#add('jnurmine/Zenburn')
+call minpac#add('altercation/vim-colors-solarized')
+call minpac#add('tpope/vim-vinegar')
+call minpac#add('tpope/vim-unimpaired')
+call minpac#add('tpope/vim-surround')
+call minpac#add('pangloss/vim-javascript')
+call minpac#add('tpope/vim-fugitive')
+call minpac#add('tpope/vim-commentary')
+call minpac#add('tpope/vim-repeat')
+call minpac#add('SirVer/ultisnips')
+call minpac#add('LaTeX-Box-Team/LaTeX-Box')
+call minpac#add('mattn/emmet-vim')
+call minpac#add('adelarsq/vim-matchit')
+call minpac#add('MaxMEllon/vim-jsx-pretty')
+call minpac#add('romainl/ctags-patterns-for-javascript')
+call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+"create minpac commands
+command! PackUpdate call minpac#update()
+command! PackClean call minpac#clean()
