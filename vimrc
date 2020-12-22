@@ -40,19 +40,6 @@ nnoremap <C-p> :<C-u>FZF<CR>
 set laststatus=2
 set statusline=%<\ %f\ %m%r%y%w%=\ L:\ \%l\/\%L\ C:\ \%c\
 
-" recommended settings for syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" set up eslint for syntastic
-let g:syntastic_javascript_checkers = ['jshint']
-
 " let backspace work as expected
 set backspace=indent,eol,start
 
