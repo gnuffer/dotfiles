@@ -87,8 +87,34 @@ call minpac#add('mattn/emmet-vim')
 call minpac#add('adelarsq/vim-matchit')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('romainl/ctags-patterns-for-javascript')
+call minpac#add('natebosch/vim-lsc')
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 
 "create minpac commands
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
+
+
+" configure Nate Bosch's vim-lsc for JavaScript
+let g:lsc_server_commands = {
+ \  'javascript': {
+ \    'command': 'typescript-language-server --stdio',
+ \    'log_level': -1,
+ \    'suppress_stderr': v:true,
+ \  }
+ \}
+let g:lsc_auto_map = {
+ \  'GoToDefinition': 'gd',
+ \  'FindReferences': 'gr',
+ \  'Rename': 'gR',
+ \  'ShowHover': 'K',
+ \  'FindCodeActions': 'ga',
+ \  'Completion': 'omnifunc',
+ \}
+let g:lsc_enable_autocomplete  = v:true
+let g:lsc_enable_diagnostics   = v:false
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level          = 'off'
+
+" auto-completion
+set completeopt=menu,menuone,noinsert,noselect
