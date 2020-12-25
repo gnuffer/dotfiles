@@ -72,6 +72,7 @@ packadd minpac
 call minpac#init()
 
 "add plugins using minpac
+call minpac#add('k-takata/minpac', {'type': 'opt'})
 call minpac#add('jnurmine/Zenburn')
 call minpac#add('altercation/vim-colors-solarized')
 call minpac#add('tpope/vim-vinegar')
@@ -88,7 +89,10 @@ call minpac#add('adelarsq/vim-matchit')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('romainl/ctags-patterns-for-javascript')
 call minpac#add('natebosch/vim-lsc')
-call minpac#add('k-takata/minpac', {'type': 'opt'})
+call minpac#add('dmerejkowsky/vim-ale')
+
+" add VimCompletesMe to be able to use the TAB key to scroll through completion
+" candidates?
 
 "create minpac commands
 command! PackUpdate call minpac#update()
@@ -118,3 +122,15 @@ let g:lsc_trace_level          = 'off'
 
 " auto-completion
 set completeopt=menu,menuone,noinsert,noselect
+
+" vim-ale (Asynchronous Lint Engine)
+" for JavaScript files, use eslint
+let g:ale_linters = {
+ \  'javascript': ['eslint'],
+ \ }
+
+" mappings in the style of unimpaired-next
+nmap <silent> [W <Plug>(ale_first)
+nmap <silent> [w <Plug>(ale_previous)
+nmap <silent> ]w <Plug>(ale_next)
+nmap <silent> ]W <Plug>(ale_last)
