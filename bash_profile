@@ -66,3 +66,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 alias pip="/Users/GerhardNuffer/.pyenv/shims/pip3"
+
+# put fzf's bin directory in path
+export PATH=$PATH:.vim/pack/minpac/start/fzf/bin

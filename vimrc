@@ -90,6 +90,8 @@ call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('romainl/ctags-patterns-for-javascript')
 call minpac#add('natebosch/vim-lsc')
 call minpac#add('dmerejkowsky/vim-ale')
+call minpac#add('junegunn/fzf')
+call minpac#add('junegunn/fzf.vim')
 
 " add VimCompletesMe to be able to use the TAB key to scroll through completion
 " candidates?
@@ -134,3 +136,6 @@ nmap <silent> [W <Plug>(ale_first)
 nmap <silent> [w <Plug>(ale_previous)
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> ]W <Plug>(ale_last)
+
+" fzf mapping
+nnoremap <C-p> :<C-u>FZF<CR>
