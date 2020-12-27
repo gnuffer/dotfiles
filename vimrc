@@ -151,3 +151,7 @@ nnoremap <Leader>* :Grepper -cword -noprompt<CR>
 " search for the current selection
 nmap gs <plug>(GrepperOperator)
 xmap gs <plug>(GrepperOperator)
+
+" enable Emmet just for HTML and CSS
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
