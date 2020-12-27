@@ -92,6 +92,7 @@ call minpac#add('natebosch/vim-lsc')
 call minpac#add('dmerejkowsky/vim-ale')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('mhinz/vim-grepper')
 
 " add VimCompletesMe to be able to use the TAB key to scroll through completion
 " candidates?
@@ -139,3 +140,14 @@ nmap <silent> ]W <Plug>(ale_last)
 
 " fzf mapping
 nnoremap <C-p> :<C-u>FZF<CR>
+
+" Grepper
+let g:grepper = {}
+let g:grepper.tools = ['grep', 'git', 'rg']
+
+" search for the current word
+nnoremap <Leader>* :Grepper -cword -noprompt<CR>
+
+" search for the current selection
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
