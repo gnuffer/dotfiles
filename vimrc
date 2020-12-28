@@ -93,6 +93,7 @@ call minpac#add('dmerejkowsky/vim-ale')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('mhinz/vim-grepper')
+call minpac#add('easymotion/vim-easymotion')
 
 " add VimCompletesMe to be able to use the TAB key to scroll through completion
 " candidates?
