@@ -38,7 +38,8 @@ nnoremap <C-p> :<C-u>FZF<CR>
 
 "status line
 set laststatus=2
-set statusline=%<\ %f\ %m%r%y%w%=\ L:\ \%l\/\%L\ C:\ \%c\
+" set statusline=%<\ %f\ %m%r%y%w%=\ L:\ \%l\/\%L\ C:\ \%c\
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 " let backspace work as expected
 set backspace=indent,eol,start
@@ -94,6 +95,7 @@ call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('mhinz/vim-grepper')
 call minpac#add('easymotion/vim-easymotion')
+call minpac#add('tpope/vim-fireplace')
 
 " add VimCompletesMe to be able to use the TAB key to scroll through completion
 " candidates?

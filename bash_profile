@@ -36,8 +36,8 @@ alias vim='/usr/local/Cellar/vim/8.2.2150/bin/vim'
 export PATH="/usr/local/bin:$PATH"
 
 # alias to the version of neovim managed by Homebrew
-alias nvim="/usr/local/Cellar/neovim/0.4.4/bin/nvim"
-export PATH="/usr/local/Cellar/neovim/0.4.4/bin/nvim:$PATH"
+alias nvim="/usr/local/Cellar/neovim/0.5.0/bin/nvim"
+export PATH="/usr/local/Cellar/neovim/0.5.0/bin/nvim:$PATH"
 
 # set default terminal editor to vim
 
