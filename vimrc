@@ -122,9 +122,9 @@ let g:lsc_auto_map = {
  \  'Completion': 'omnifunc',
  \}
 let g:lsc_enable_autocomplete  = v:true
-let g:lsc_enable_diagnostics   = v:false
+let g:lsc_enable_diagnostics = v:false
 let g:lsc_reference_highlights = v:false
-let g:lsc_trace_level          = 'off'
+let g:lsc_trace_level = 'off'
 
 " auto-completion
 set completeopt=menu,menuone,noinsert,noselect
@@ -158,3 +158,10 @@ xmap gs <plug>(GrepperOperator)
 " enable Emmet just for HTML and CSS
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
+
+"save folds when quitting, load folds when opening files
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+"reselect pasted text
+nnoremap gp `[v`]
