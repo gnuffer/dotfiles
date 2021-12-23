@@ -36,6 +36,10 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " normal mode mapping for fuzzy file finder fzf
 nnoremap <C-p> :<C-u>FZF<CR>
 
+" after opening curly brace and <CR>, add closing curly brace and put cursor
+" in between
+inoremap {<CR> {<CR>}<ESC>ko
+
 "status line
 set laststatus=2
 " set statusline=%<\ %f\ %m%r%y%w%=\ L:\ \%l\/\%L\ C:\ \%c\
@@ -83,6 +87,11 @@ call minpac#add('pangloss/vim-javascript')
 call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-commentary')
 call minpac#add('tpope/vim-repeat')
+call minpac#add('tpope/vim-fireplace')
+call minpac#add('tpope/vim-salve')
+call minpac#add('tpope/vim-dispatch')
+call minpac#add('tpope/vim-sexp-mappings-for-regular-people')
+call minpac#add('guns/vim-sexp')
 call minpac#add('SirVer/ultisnips')
 call minpac#add('LaTeX-Box-Team/LaTeX-Box')
 call minpac#add('mattn/emmet-vim')
@@ -131,8 +140,10 @@ set completeopt=menu,menuone,noinsert,noselect
 
 " vim-ale (Asynchronous Lint Engine)
 " for JavaScript files, use eslint
+" for Clojure, use clj-kondo
 let g:ale_linters = {
  \  'javascript': ['eslint'],
+ \  'clojure': ['clj-kondo']
  \ }
 
 " mappings in the style of unimpaired-next
