@@ -33,6 +33,10 @@ nnoremap <silent> <expr> $ ScreenMovement("$")
 " map '%:h', which expands to the file path of the active buffer, to '%%'
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
+" allow saving of files with sudo when using vim without sudo
+" (https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work)
+cmap w!! w !sudo tee > /dev/null %
+
 " normal mode mapping for fuzzy file finder fzf
 nnoremap <C-p> :<C-u>FZF<CR>
 
