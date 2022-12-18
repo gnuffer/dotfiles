@@ -32,8 +32,8 @@ if [ -f ~/.git-completion.bash ]; then
 fi
  
 # alias to the most recent version of vim
-alias vim='/usr/local/Cellar/vim/8.2.2150/bin/vim'
-export PATH="/usr/local/bin:$PATH"
+# alias vim='/usr/local/Cellar/vim/8.2.2150/bin/vim'
+# export PATH="/usr/local/bin:$PATH"
 
 # alias to the version of neovim managed by Homebrew
 alias nvim="/usr/local/Cellar/neovim/0.5.0/bin/nvim"
