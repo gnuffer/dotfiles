@@ -9,7 +9,9 @@ syntax enable
 " enable matchit.vim and use '%' to jump between matching keywords
 runtime macros/matchit.vim
 
-set number
+" set relative line numbers
+set relativenumber
+
 set display=lastline
 " mapping to make movements operate on 1 screen line in wrap mode
 function! ScreenMovement(movement)
@@ -103,12 +105,15 @@ call minpac#add('adelarsq/vim-matchit')
 call minpac#add('MaxMEllon/vim-jsx-pretty')
 call minpac#add('romainl/ctags-patterns-for-javascript')
 call minpac#add('natebosch/vim-lsc')
-call minpac#add('dmerejkowsky/vim-ale')
+call minpac#add('dense-analysis/ale')
+call minpac#add('clj-kondo/clj-kondo')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 call minpac#add('mhinz/vim-grepper')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('tpope/vim-fireplace')
+call minpac#add('guns/vim-clojure-static')
+call minpac#add('luochen1990/rainbow')
 
 " add VimCompletesMe to be able to use the TAB key to scroll through completion
 " candidates?
@@ -118,43 +123,56 @@ command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
 
 
-" configure Nate Bosch's vim-lsc for JavaScript
+" configure Nate Bosch's vim-lsc for JavaScript and Clojure
 let g:lsc_server_commands = {
  \  'javascript': {
  \    'command': 'typescript-language-server --stdio',
  \    'log_level': -1,
  \    'suppress_stderr': v:true,
+ \  },
+ \  'clojure': {
+ \    'command': 'clojure-lsp',
+ \    'log_level': -1,
+ \    'suppress_stderr': v:true,
  \  }
  \}
-let g:lsc_auto_map = {
- \  'GoToDefinition': 'gd',
- \  'FindReferences': 'gr',
- \  'Rename': 'gR',
- \  'ShowHover': 'K',
- \  'FindCodeActions': 'ga',
- \  'Completion': 'omnifunc',
- \}
+let g:lsc_auto_map = {}
+ "\  'GoToDefinition': 'gd',
+ "\  'FindReferences': 'gr',
+ "\  'Rename': 'gR',
+ "\  'FindCodeActions': 'ga',
+ "\  'Completion': 'omnifunc',
+ "\}
 let g:lsc_enable_autocomplete  = v:true
 let g:lsc_enable_diagnostics = v:false
 let g:lsc_reference_highlights = v:false
 let g:lsc_trace_level = 'off'
 
+
 " auto-completion
 set completeopt=menu,menuone,noinsert,noselect
 
-" vim-ale (Asynchronous Lint Engine)
-" for JavaScript files, use eslint
+
+
+" Ale (Asynchronous Linting Engine)
+" for JavaScript files, use eslint,
 " for Clojure, use clj-kondo
 let g:ale_linters = {
  \  'javascript': ['eslint'],
  \  'clojure': ['clj-kondo']
  \ }
 
+" Enable completion where available.
+let g:ale_completion_enabled = 1
+
 " mappings in the style of unimpaired-next
 nmap <silent> [W <Plug>(ale_first)
 nmap <silent> [w <Plug>(ale_previous)
 nmap <silent> ]w <Plug>(ale_next)
 nmap <silent> ]W <Plug>(ale_last)
+
+" rainbow parentheses improved (luochen1990/rainbow)
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " fzf mapping
 nnoremap <C-p> :<C-u>FZF<CR>
@@ -180,3 +198,6 @@ autocmd BufWinEnter *.* silent loadview
 
 "reselect pasted text
 nnoremap gp `[v`]
+
+"eliminate delay when pressing ESCAPE (CTRL-[)
+set ttimeoutlen=0
